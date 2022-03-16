@@ -1,11 +1,19 @@
 export default {
   pages: [
+    "pages/run/index",
+    "pages/track/index",
     "pages/index/index",
     ],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
-    navigationBarTitleText: "WeChat",
+    navigationBarTitleText: "趣跑",
     navigationBarTextStyle: "black",
   },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"申请访问你的位置信息"
+    }
+  }
+
 };

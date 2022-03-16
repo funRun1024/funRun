@@ -1,17 +1,40 @@
-import React from "react";
 
-import { View } from "@tarojs/components";
-// import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
+// // import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
 
-import './index.scss'
+import React, {
+  FC,
+  useReducer,
+  Dispatch,
+} from "react";
+// import  Run from "../run/index"
+import MyProvide from "../../store/createContext";
+import reducer, { StateProps, ActionProps } from "../../store/reducer";
 
+interface ContextProps {
+  state: StateProps;
+  dispatch: Dispatch<ActionProps>;
+}
 
-const Index = () => {
+const Index: FC = () => {
+  //所有初始化的状态
+  const initState: StateProps = {
+    Persons:[{
+      id:123,
+      text:'tom',
+      isFinished:false
+    }]
+  };
+  const [state, dispatch] = useReducer(reducer, initState);
+  const transferParameter: ContextProps = { state, dispatch }
+
   return (
-    <View className='wrapper'>
-       首页
-    </View>
+    <>
+      <MyProvide value={transferParameter}>
+        {/*子组件都写在这里*/}
+        asd
+        {/* <Run /> */}
+      </MyProvide>
+    </>
   );
 };
-
 export default Index;

@@ -41,9 +41,14 @@ const  PolylineInitState=[
 export default function Run(){
   // const { value: { dispatch, state } } = useContext(MyContext);
   const [polyline,setPolyline]=useState<MapProps.polyline[]>([])
-  const [latitude,setLatitude]=useState<number>(0)
-  const [longitude,setLongitude]=useState<number>(0)
-  console.log(latitude,longitude)
+  // const [latitude,setLatitude]=useState<number>(0)
+  // const [longitude,setLongitude]=useState<number>(0)
+  const goResult=()=>{
+    Taro.navigateTo({
+      url:'../../pages/result/index'
+    })
+  }
+  // console.log(latitude,longitude)
   // console.log(' run state',state)
   // const addTodoHandle = () => {
   //   dispatch({
@@ -56,13 +61,14 @@ export default function Run(){
   //   });
   // };
   useEffect(()=>{
+    console.log('挂在了')
     Taro.getLocation({
       type: 'gcj02',
       isHighAccuracy:true,
       success: function (res) {
-        console.log('latitude',res.latitude,'longitude',res.longitude)
-        setLatitude(res.latitude)
-        setLongitude(res.longitude)
+        // console.log('latitude',res.latitude,'longitude',res.longitude)
+        // setLatitude(res.latitude)
+        // setLongitude(res.longitude)
         const speed = res.speed
         const accuracy = res.accuracy
         console.log('speed',speed,'accuracy',accuracy)
@@ -76,7 +82,7 @@ export default function Run(){
       <Button className='time'>05:20</Button>
         <Button className='speed'>0.1km/h</Button>
       <Map  longitude={116.297611} latitude={40.047363} className='map' polyline={polyline}></Map>
-      <Button className='returnButton'>返回</Button>
+      <Button className='returnButton' onClick={()=>goResult()}>返回</Button>
     </Fragment>
   );
 };

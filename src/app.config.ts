@@ -1,8 +1,9 @@
 export default {
   pages: [
-    "pages/run/index",
+    // "pages/result/index",
+    // "pages/run/index",
     "pages/track/index",
-    "pages/index/index",
+    // "pages/index/index",
     ],
   window: {
     backgroundTextStyle: "light",

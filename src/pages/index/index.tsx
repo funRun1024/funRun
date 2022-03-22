@@ -41,14 +41,15 @@ const Page: FC = () => {
         <View
           className={styles.backPic}
           style={{
-            background: `url(${day ? picArr[back].day : picArr[back].night})`
+            background: `url(${day ? picArr[back].day : picArr[back].night})`,
+            backgroundSize: "cover"
           }}
         ></View>
         <View className={styles.weatherBox}>
           <View>天气晴朗</View>
           <View>6~8度</View>
         </View>
-        <View className={styles.sun}></View>
+        {day ? <View className={styles.sun}></View> : <></>}
         <View className={styles.topBtns}>
           <Button
             onClick={() => {

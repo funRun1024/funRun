@@ -1,9 +1,10 @@
-import { Button, View, Image } from "@tarojs/components";
+import { View, Image } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import profile from "../../images/top/head.png";
 import UserContext, { useUser } from "../../store/createContext";
+import { Header, useHeader } from "../../components/header";
 
 export interface User {
   id: string;
@@ -12,11 +13,10 @@ export interface User {
   time: string;
 }
 const Page: React.FC<{}> = () => {
-  const [tab, setTab] = useState(true);
   const [arr, setArr] = useState<User[]>([]);
   const [meIndex, setMeIndex] = useState(0);
   const { user } = useUser();
-
+  // const { tab, setTab } = useHeader();
   useEffect(() => {
     Taro.request({
       url: "http://localhost:3001/top", //仅为示例，并非真实的接口地址
@@ -28,10 +28,7 @@ const Page: React.FC<{}> = () => {
         res.data.sort((b, a) => {
           return Number(a.distance) - Number(b.distance);
         });
-        // res.data.map((data,index)=>{
-        //   if
-        //   return data
-        // })
+
         setArr(res.data);
       }
     }).then(res => {
@@ -43,31 +40,10 @@ const Page: React.FC<{}> = () => {
   }, []);
   return (
     <View className={styles.top}>
-      <View className={styles.head}>
-        <View>
-          <Button
-            className={tab ? styles.active : ""}
-            onClick={() => {
-              setTab(true);
-            }}
-          >
-            今日
-          </Button>
-          {tab ? <View className={styles.line}></View> : <></>}
-        </View>
-        <View>
-          <Button
-            className={!tab ? styles.active : ""}
-            onClick={() => {
-              setTab(false);
-            }}
-          >
-            累计
-          </Button>
-          {!tab ? <View className={styles.line}></View> : <></>}
-        </View>
-      </View>
-
+      {
+        // eslint-disable-next-line
+        <Header left="今日" right="累计" />
+      }
       <View className={styles.content}>
         <View className={styles.item} key={user?.id}>
           <View className={styles.left}>

@@ -5,38 +5,36 @@ import styles from "./index.module.scss";
 interface headerProps {
   left: string;
   right: string;
+  setState: Function;
+  state: boolean;
 }
-const Header: React.FC<headerProps> = ({ left, right }) => {
-  const { tab, setTab } = useHeader();
+const Header: React.FC<headerProps> = ({ left, right, setState, state }) => {
   return (
     <View className={styles.head}>
       <View>
         <Button
-          className={tab ? styles.active : ""}
+          className={state ? styles.active : ""}
           onClick={() => {
-            setTab(true);
+            setState(true);
           }}
         >
           {left}
         </Button>
-        {tab ? <View className={styles.line}></View> : <></>}
+        {state ? <View className={styles.line}></View> : <></>}
       </View>
       <View>
         <Button
-          className={!tab ? styles.active : ""}
+          className={!state ? styles.active : ""}
           onClick={() => {
-            setTab(false);
+            setState(false);
           }}
         >
           {right}
         </Button>
-        {!tab ? <View className={styles.line}></View> : <></>}
+        {!state ? <View className={styles.line}></View> : <></>}
       </View>
     </View>
   );
 };
-export const useHeader = () => {
-  const [tab, setTab] = useState(true);
-  return { tab, setTab };
-};
+
 export default Header;

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import profile from "../../images/top/head.png";
 import UserContext, { useUser } from "../../store/createContext";
-import Header, { useHeader } from "../../components/header";
+import Header from "../../components/header";
 
 export interface User {
   id: string;
@@ -16,7 +16,7 @@ const Page: React.FC<{}> = () => {
   const [arr, setArr] = useState<User[]>([]);
   const [meIndex, setMeIndex] = useState(0);
   const { user } = useUser();
-  // const { tab, setTab } = useHeader();
+  const [tab, setTab] = useState(false);
   useEffect(() => {
     Taro.request({
       url: "http://localhost:3001/top", //仅为示例，并非真实的接口地址
@@ -42,7 +42,7 @@ const Page: React.FC<{}> = () => {
     <View className={styles.top}>
       {
         // eslint-disable-next-line
-        <Header left="今日" right="累计" />
+        <Header left="今日" right="累计" state={tab} setState={setTab} />
       }
       <View className={styles.content}>
         <View className={styles.item} key={user?.id}>

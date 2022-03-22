@@ -5,7 +5,7 @@
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
-
+  overflow: hidden;
   button::after {
     border: none;
   }
@@ -137,7 +137,7 @@
   .footer {
     position: absolute;
     width: 100%;
-    bottom: 24px;
+    bottom: 20px;
     .readyBtn {
       width: 146px;
       height: 54.64px;
@@ -161,6 +161,39 @@
         background: url(../../images/index/clothBtn.png);
         background-size: cover;
       }
+    }
+  }
+
+  .earth_day {
+    position: absolute;
+
+    z-index: -1;
+    width: 930px;
+    height: 930px;
+    bottom: -470px;
+    transform: translate(-8px);
+    background: url(../../images/index/earth1.png);
+    background-size: cover;
+  }
+  .earth_night {
+    position: absolute;
+    z-index: -1;
+    width: 785px;
+    height: 785px;
+    bottom: -400px;
+    // transform: translate(-8px);
+    background: url(../../images/index/earth2.png);
+    background-size: cover;
+  }
+  .earth_move {
+    animation: rotate 20s linear infinite;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    from {
+      transform: rotate(360deg);
     }
   }
 }

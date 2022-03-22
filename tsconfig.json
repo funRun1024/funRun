@@ -18,10 +18,12 @@
     "jsx": "react",
     "allowJs": true,
     "resolveJsonModule": true,
+    
     "typeRoots": [
       "node_modules/@types"
     ]
   },
+  "baseUrl":"./src",
   "include": ["./src", "global.d.ts"],
   "compileOnSave": false
 }

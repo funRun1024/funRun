@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import profile from "../../images/top/head.png";
 import UserContext, { useUser } from "../../store/createContext";
-import { Header, useHeader } from "../../components/header";
+import Header, { useHeader } from "../../components/header";
 
 export interface User {
   id: string;

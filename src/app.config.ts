@@ -3,8 +3,9 @@ export default {
     // "pages/result/index",
     // "pages/run/index",
     // "pages/track/index",
-    "pages/index/index"
+    // "pages/index/index"
     // "pages/top/index"
+    "pages/cloth/index"
   ],
   window: {
     backgroundTextStyle: "light",

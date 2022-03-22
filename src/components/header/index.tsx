@@ -6,7 +6,7 @@ interface headerProps {
   left: string;
   right: string;
 }
-export const Header: React.FC<headerProps> = ({ left, right }) => {
+const Header: React.FC<headerProps> = ({ left, right }) => {
   const { tab, setTab } = useHeader();
   return (
     <View className={styles.head}>
@@ -39,3 +39,4 @@ export const useHeader = () => {
   const [tab, setTab] = useState(true);
   return { tab, setTab };
 };
+export default Header;

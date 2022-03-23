@@ -24,6 +24,44 @@
       "name": "小焯",
       "distance":"3.07",
       "time":"27"
+    },
+    {
+      "id": 5,
+      "name": "小jj",
+      "distance":"3.07",
+      "time":"27"
+    }
+  ],
+  "record":[
+    {
+      "id": 1,
+      "name": "小红",
+      "distance":"14.07",
+      "time":"322"
+    },
+    {
+      "id": 2,
+      "name": "小紫",
+      "distance":"22.07",
+      "time":"126"
+    },
+    {
+      "id": 3,
+      "name": "小Q",
+      "distance":"26.07",
+      "time":"224"
+    },
+    {
+      "id": 4,
+      "name": "小焯",
+      "distance":"13.07",
+      "time":"227"
+    },
+    {
+      "id": 5,
+      "name": "小jj",
+      "distance":"43.07",
+      "time":"127"
     }
   ],
   "me":{

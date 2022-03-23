@@ -1,8 +1,8 @@
-import { View, Image, Swiper, SwiperItem, Button } from '@tarojs/components';
+import { View, Swiper, SwiperItem, Button } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
-import UserContext, { useUser } from '../../store/createContext';
+import UserContext from '../../store/createContext';
 import Header from '../../components/header';
 import day1 from '../../images/index/day1.png';
 import night1 from '../../images/index/night1.png';

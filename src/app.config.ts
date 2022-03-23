@@ -2,10 +2,10 @@ export default {
   pages: [
     // "pages/result/index",
     // "pages/run/index",
-    // "pages/track/index",
+    // "pages/track/index",'
+    'pages/top/index',
     'pages/cloth/index',
-    'pages/index/index',
-    'pages/top/index'
+    'pages/index/index'
   ],
   window: {
     backgroundTextStyle: 'light',

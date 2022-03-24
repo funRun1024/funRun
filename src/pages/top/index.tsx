@@ -1,10 +1,10 @@
-import { View, Image } from "@tarojs/components";
-import Taro from "@tarojs/taro";
-import React, { useEffect, useState } from "react";
-import styles from "./index.module.scss";
-import profile from "../../images/top/head.png";
-import UserContext, { useUser } from "../../store/createContext";
-import Header, { useHeader } from "../../components/header";
+import { View, Image } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+import React, { useEffect, useState } from 'react';
+import styles from './index.module.scss';
+import profile from '../../images/top/head.png';
+import UserContext, { useUser } from '../../store/createContext';
+import Header from '../../components/header';
 
 export interface User {
   id: string;
@@ -14,56 +14,68 @@ export interface User {
 }
 const Page: React.FC<{}> = () => {
   const [arr, setArr] = useState<User[]>([]);
+  const [record, setRecord] = useState<User[]>([]);
   const [meIndex, setMeIndex] = useState(0);
+  const [me, setMe] = useState<User | null>(null);
+  const [tab, setTab] = useState(true);
   const { user } = useUser();
-  // const { tab, setTab } = useHeader();
   useEffect(() => {
     Taro.request({
-      url: "http://localhost:3001/top", //仅为示例，并非真实的接口地址
-      method: "GET",
+      url: 'http://localhost:3001/top', //仅为示例，并非真实的接口地址
+      method: 'GET',
       header: {
-        "content-type": "application/json" // 默认值
+        'content-type': 'application/json' // 默认值
       },
       success: (res: { data: User[] }) => {
         res.data.sort((b, a) => {
           return Number(a.distance) - Number(b.distance);
         });
-
         setArr(res.data);
       }
-    }).then(res => {
-      res.data.map((data, index) => {
-        console.log(user);
-        console.log(data, index);
-      });
+    });
+    Taro.request({
+      url: 'http://localhost:3001/record', //仅为示例，并非真实的接口地址
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: (res: { data: User[] }) => {
+        res.data.sort((b, a) => {
+          return Number(a.distance) - Number(b.distance);
+        });
+        setRecord(res.data);
+      }
     });
   }, []);
   return (
     <View className={styles.top}>
       {
         // eslint-disable-next-line
-        <Header left="今日" right="累计" />
+        <Header left="今日" right="累计" state={tab} setState={setTab} />
       }
       <View className={styles.content}>
-        <View className={styles.item} key={user?.id}>
+        <View className={styles.item} key={me?.id}>
           <View className={styles.left}>
             <View className={styles.sort}> {meIndex}</View>
             <View>
               <Image className={styles.profile} src={profile} />
             </View>
-            <View className={styles.name}>{user?.name}</View>
+            <View className={styles.name}>{me?.name}</View>
           </View>
 
           <View className={styles.data}>
-            <View>{user?.distance + "公里"}</View>
-            <View>{user?.time + "分钟"}</View>
+            <View>{me?.distance + '公里'}</View>
+            <View>{me?.time + '分钟'}</View>
           </View>
         </View>
         <View className={styles.line}></View>
-        {arr.map((data, index) => {
+        {(tab ? arr : record).map((data, index) => {
           if (data.id === user?.id)
             //使用异步防止报错
             setTimeout(() => {
+              console.log(data);
+
+              setMe(data);
               setMeIndex(index + 1);
             }, 0);
           return (
@@ -76,12 +88,25 @@ const Page: React.FC<{}> = () => {
                 <View className={styles.name}>{data.name}</View>
               </View>
               <View className={styles.data}>
-                <View>{data.distance + "公里"}</View>
-                <View>{data.time + "分钟"}</View>
+                <View>{data.distance + '公里'}</View>
+                <View>{data.time + '分钟'}</View>
               </View>
             </View>
           );
         })}
+      </View>
+      <View className={styles.footer}>
+        <View className={styles.cover}></View>
+        <View
+          className={styles.btn}
+          onClick={() => {
+            Taro.navigateTo({
+              url: `../index/index`
+            });
+          }}
+        >
+          返回
+        </View>
       </View>
     </View>
   );

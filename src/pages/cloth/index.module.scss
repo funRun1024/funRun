@@ -1,0 +1,88 @@
+.cloth {
+  width: 100vw;
+  height: 100vh;
+  .personContent {
+    position: relative;
+    // top: 148px;
+    margin-top: 20px;
+    width: 100vw;
+    height: 450px;
+    swiper-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 180px;
+      view {
+        transition: 0.5s ease-out;
+      }
+      .man {
+        width: 95.12px;
+        height: 243px;
+        background: url(../../images/index/man.png);
+        background-size: cover;
+      }
+      .woman {
+        width: 95.12px;
+        height: 243px;
+        background: url(../../images/index/woman.png);
+        background-size: cover;
+      }
+      .man_active {
+        width: 165px;
+        height: 421.52px;
+      }
+      .woman_active {
+        width: 179.8px;
+        height: 449.4px;
+      }
+    }
+  }
+  .circle {
+    position: absolute;
+    width: 195px;
+    height: 61px;
+    left: 90px;
+    bottom: 90px;
+    background: url(../../images/cloth/circle.png);
+    background-size: cover;
+    z-index: -1;
+  }
+  .backBtn {
+    position: absolute;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 42px;
+    color: #ffffff;
+    width: 124px;
+    height: 45px;
+    background: url(../../images/top/button.png);
+    background-size: cover;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .backPic {
+    // margin-left: -100px;
+    position: relative;
+    width: 100%;
+    height: 399px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: 39px;
+    swiper-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      view {
+        width: 224px;
+        height: 70%;
+        bottom: 0;
+        transition: 0.7s ease-out;
+      }
+      .active {
+        height: 100%;
+      }
+    }
+  }
+}

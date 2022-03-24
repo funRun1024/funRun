@@ -22,8 +22,8 @@ const Page: FC = () => {
   const [person, setPerson] = useState<0 | 1>(1);
   const [back, setBack] = useState(0);
   const [day, setDay] = useState(1);
-  const [next, setNext] = useState(1);
-  const [running, setRunning] = useState(true);
+  const [next, setNext] = useState(0);
+  const [running, setRunning] = useState(false);
 
   const picArr = [
     { day: day1, night: night1 },

@@ -57,7 +57,8 @@ const Page: FC = () => {
             background: `url(${day ? picArr[back]?.day : picArr[back]?.night})`,
             backgroundSize: 'cover'
           }}
-        ></View>
+        ></View>{' '}
+        {day ? <View className={styles.sun}></View> : <></>}
         {next ? (
           <Running
             person={!!person}
@@ -71,7 +72,7 @@ const Page: FC = () => {
               <View>天气晴朗</View>
               <View>6~8度</View>
             </View>
-            {day ? <View className={styles.sun}></View> : <></>}
+
             <View className={styles.topBtns}>
               <Button
                 onClick={() => {
@@ -140,7 +141,6 @@ const Page: FC = () => {
             </View>
           </>
         )}
-
         <View
           className={
             (day ? styles.earth_day : styles.earth_night) +

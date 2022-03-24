@@ -61,7 +61,6 @@ export default function Run(){
   //   });
   // };
   useEffect(()=>{
-    console.log('挂在了')
     Taro.getLocation({
       type: 'gcj02',
       isHighAccuracy:true,

@@ -1,0 +1,35 @@
+{
+  
+  "top":[
+    {
+      "id": 1,
+      "name": "小红",
+      "distance":"4.07",
+      "time":"22"
+    },
+    {
+      "id": 2,
+      "name": "小紫",
+      "distance":"2.07",
+      "time":"26"
+    },
+    {
+      "id": 3,
+      "name": "小Q",
+      "distance":"6.07",
+      "time":"24"
+    },
+    {
+      "id": 4,
+      "name": "小焯",
+      "distance":"3.07",
+      "time":"27"
+    }
+  ],
+  "me":{
+    "id": 4,
+    "name": "小焯",
+    "distance":"3.07",
+    "time":"27"
+  }
+}

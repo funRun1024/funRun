@@ -10,11 +10,14 @@ import React, {
 import Taro from '@tarojs/taro';
 
 import styles from './index.module.scss';
-
 import day1 from '../../images/index/day1.png';
 import night1 from '../../images/index/night1.png';
 import day2 from '../../images/index/day2.png';
 import night2 from '../../images/index/night2.png';
+import sun from '../../images/weather/sun.png';
+import rain from '../../images/weather/rain.png';
+import cloud from '../../images/weather/cloud.png';
+import snow from '../../images/weather/snow.png';
 // eslint-disable-next-line import/no-duplicates
 import {
   UserContext,
@@ -29,7 +32,8 @@ const Page: FC = () => {
   const [back, setBack] = useState(0);
   const [day, setDay] = useState(1);
   const [next, setNext] = useState(0);
-  const [running, setRunning] = useState(false);
+  const [running, setRunning] = useState(true);
+  const [type, setType] = useState(3);
   const timer = useRef();
   // @ts-ignore
   let { time, speed, setTime } = useContext<ContextType | null>(UserContext);
@@ -38,8 +42,39 @@ const Page: FC = () => {
     { day: day2, night: night2 },
     { day: day1, night: night1 }
   ];
+  const toWheather = (index: number) => {
+    switch (index) {
+      case 0:
+        return {
+          background: `url(${sun})`,
+          backgroundSize: 'cover'
+        };
+      case 1:
+        return {
+          background: `url(${rain})`,
+          backgroundSize: 'cover'
+        };
+      case 2:
+        return {
+          background: `url(${cloud})`,
+          backgroundSize: 'cover'
+        };
+      case 3:
+        return {
+          background: `url(${snow})`,
+          backgroundSize: 'cover'
+        };
+      default:
+        return {
+          background: 'url(../../images/weather/sun.png)',
+          backgroundSize: 'cover'
+        };
+    }
+  };
   const changeState = useCallback(() => {
+    // flag? setRunning(running):  setRunning(!running)
     setRunning(!running);
+
     if (!running) {
       // @ts-ignore
       timer.current = setInterval(() => {
@@ -49,6 +84,10 @@ const Page: FC = () => {
       clearInterval(timer.current);
     }
   }, [running, setTime, time]);
+  useEffect(() => {
+    // setRunning(!running);
+    changeState();
+  }, []);
   useEffect(() => {
     const hours = new Date().getHours();
     if (6 < hours && hours < 19) setDay(1);
@@ -71,7 +110,11 @@ const Page: FC = () => {
             backgroundSize: 'cover'
           }}
         ></View>{' '}
-        {day ? <View className={styles.sun}></View> : <></>}
+        {day ? (
+          <View className={styles.sun} style={toWheather(type)}></View>
+        ) : (
+          <></>
+        )}
         {next ? (
           <Running
             person={!!person}

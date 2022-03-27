@@ -3,71 +3,82 @@
   "top":[
     {
       "id": 1,
-      "name": "小红",
+      "name": "涯小羊",
       "distance":"4.07",
-      "time":"22"
+      "time":"22.9",
+      "profile":"../../images/profile/1.jpg"
     },
     {
       "id": 2,
-      "name": "小紫",
+      "name": "Boom!",
       "distance":"2.07",
-      "time":"26"
+      "time":"26.8",
+      "profile":"../../images/profile/2.jpg"
     },
     {
       "id": 3,
-      "name": "小Q",
+      "name": "筱",
       "distance":"6.07",
-      "time":"24"
+      "time":"24.3",
+      "profile":"../../images/profile/3.jpg"
     },
     {
       "id": 4,
-      "name": "小焯",
+      "name": "法棍的羊角包",
       "distance":"3.07",
-      "time":"27"
+      "time":"27.5",
+      "profile":"../../images/profile/4.jpg"
     },
     {
       "id": 5,
-      "name": "小jj",
+      "name": "king",
       "distance":"3.07",
-      "time":"27"
+      "time":"27.2",
+      "profile":"../../images/profile/5.jpg"
     }
   ],
   "record":[
     {
       "id": 1,
-      "name": "小红",
+      "name": "涯小羊",
       "distance":"14.07",
-      "time":"322"
+      "time":"322.3",
+      "profile":"../../images/profile/1.jpg"
     },
     {
       "id": 2,
-      "name": "小紫",
+      "name": "Boom!",
       "distance":"22.07",
-      "time":"126"
+      "time":"126.4",
+      "profile":"../../images/profile/2.jpg"
     },
     {
       "id": 3,
-      "name": "小Q",
+      "name": "筱",
       "distance":"26.07",
-      "time":"224"
+      "time":"224.2",
+      "profile":"../../images/profile/3.jpg"
     },
     {
       "id": 4,
-      "name": "小焯",
+      "name": "法棍的羊角包",
       "distance":"13.07",
-      "time":"227"
+      "time":"227.3",
+      "profile":"../../images/profile/4.jpg"
     },
     {
       "id": 5,
-      "name": "小jj",
+      "name": "king",
       "distance":"43.07",
-      "time":"127"
+      "time":"127.5",
+      "profile":"../../images/profile/5.jpg"
     }
   ],
   "me":{
     "id": 4,
-    "name": "小焯",
-    "distance":"3.07",
-    "time":"27"
+    "name": "法棍的羊角包",
+    "distance":"13.07",
+    "time":"27.6",
+    "profile":"../../images/profile/4.jpg"
   }
 }

@@ -1,30 +1,19 @@
-import { Button, Swiper, SwiperItem, View } from '@tarojs/components';
-import React, {
-  FC,
-  useState,
-  useEffect,
-  useContext,
-  useCallback,
-  useRef
-} from 'react';
-import Taro from '@tarojs/taro';
+import { Button, Swiper, SwiperItem, View } from "@tarojs/components";
+import React, { FC, useState, useEffect, useContext, useCallback, useRef } from "react";
+import Taro from "@tarojs/taro";
 
-import styles from './index.module.scss';
-import day1 from '../../images/index/day1.png';
-import night1 from '../../images/index/night1.png';
-import day2 from '../../images/index/day2.png';
-import night2 from '../../images/index/night2.png';
-import sun from '../../images/weather/sun.png';
-import rain from '../../images/weather/rain.png';
-import cloud from '../../images/weather/cloud.png';
-import snow from '../../images/weather/snow.png';
+import styles from "./index.module.scss";
+import day1 from "../../images/index/day1.png";
+import night1 from "../../images/index/night1.png";
+import day2 from "../../images/index/day2.png";
+import night2 from "../../images/index/night2.png";
+import sun from "../../images/weather/sun.png";
+import rain from "../../images/weather/rain.png";
+import cloud from "../../images/weather/cloud.png";
+import snow from "../../images/weather/snow.png";
 // eslint-disable-next-line import/no-duplicates
-import {
-  UserContext,
-  UserProvider,
-  ContextType
-} from '../../store/createContext';
-import Running from '../running';
+import { UserContext, UserProvider, ContextType } from "../../store/createContext";
+import Running from "../running";
 
 const Page: FC = () => {
   //所有初始化的状态
@@ -47,27 +36,27 @@ const Page: FC = () => {
       case 0:
         return {
           background: `url(${sun})`,
-          backgroundSize: 'cover'
+          backgroundSize: "cover"
         };
       case 1:
         return {
           background: `url(${rain})`,
-          backgroundSize: 'cover'
+          backgroundSize: "cover"
         };
       case 2:
         return {
           background: `url(${cloud})`,
-          backgroundSize: 'cover'
+          backgroundSize: "cover"
         };
       case 3:
         return {
           background: `url(${snow})`,
-          backgroundSize: 'cover'
+          backgroundSize: "cover"
         };
       default:
         return {
-          background: 'url(../../images/weather/sun.png)',
-          backgroundSize: 'cover'
+          background: "url(../../images/weather/sun.png)",
+          backgroundSize: "cover"
         };
     }
   };
@@ -93,8 +82,7 @@ const Page: FC = () => {
     if (6 < hours && hours < 19) setDay(1);
     else setDay(0);
 
-    const { person: per, pic: bk } = Taro?.getCurrentInstance()?.router
-      ?.params || { person: null, pic: null };
+    const { person: per, pic: bk } = Taro?.getCurrentInstance()?.router?.params || { person: null, pic: null };
     if (per && bk) {
       setPerson(per ? 1 : 0);
       setBack(Number(bk));
@@ -107,21 +95,12 @@ const Page: FC = () => {
           className={styles.backPic}
           style={{
             background: `url(${day ? picArr[back]?.day : picArr[back]?.night})`,
-            backgroundSize: 'cover'
+            backgroundSize: "cover"
           }}
-        ></View>{' '}
-        {day ? (
-          <View className={styles.sun} style={toWheather(type)}></View>
-        ) : (
-          <></>
-        )}
+        ></View>{" "}
+        {day ? <View className={styles.sun} style={toWheather(type)}></View> : <></>}
         {next ? (
-          <Running
-            person={!!person}
-            changeState={changeState}
-            state={running}
-            data={{ speed, distance: time * 2, time }}
-          />
+          <Running person={!!person} changeState={changeState} state={running} data={{ speed, distance: time * 2, time }} />
         ) : (
           <>
             <View className={styles.weatherBox}>
@@ -173,7 +152,7 @@ const Page: FC = () => {
                 className={styles.readyBtn}
                 onClick={() => {
                   setNext(1);
-                  setRunning(true);
+                  setRunning(false);
                 }}
               />
               <View className={styles.down}>
@@ -181,7 +160,7 @@ const Page: FC = () => {
                   className={styles.clothBtn}
                   onClick={() => {
                     Taro.navigateTo({
-                      url: '../cloth/index'
+                      url: "../cloth/index"
                     });
                   }}
                 />
@@ -189,7 +168,7 @@ const Page: FC = () => {
                   className={styles.topBtn}
                   onClick={() => {
                     Taro.navigateTo({
-                      url: '../top/index'
+                      url: "../top/index"
                     });
                   }}
                 />
@@ -197,12 +176,7 @@ const Page: FC = () => {
             </View>
           </>
         )}
-        <View
-          className={
-            (day ? styles.earth_day : styles.earth_night) +
-            ` ${running ? styles.earth_move : styles.earth_stop}`
-          }
-        ></View>
+        <View className={(day ? styles.earth_day : styles.earth_night) + ` ${running ? styles.earth_move : styles.earth_stop}`}></View>
       </View>
       {/* {false? <Run />:null} */}
     </>

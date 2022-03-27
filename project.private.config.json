@@ -1,6 +1,6 @@
 {
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "autoAudits": true,
     "useIsolateContext": false
   },

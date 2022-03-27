@@ -17,6 +17,7 @@
 
     list-style: none;
   }
+
   .backPic {
     position: fixed;
     width: 100vw;
@@ -174,6 +175,7 @@
     transform: translate(-8px);
     background: url(../../images/index/earth1.png);
     background-size: cover;
+    animation: rotate 20s linear infinite;
   }
   .earth_night {
     position: absolute;
@@ -184,15 +186,19 @@
     // transform: translate(-8px);
     background: url(../../images/index/earth2.png);
     background-size: cover;
+    animation: rotate 20s linear infinite;
   }
   .earth_move {
-    animation: rotate 20s linear infinite;
+    animation-play-state: running;
+  }
+  .earth_stop {
+    animation-play-state: paused;
   }
   @keyframes rotate {
     from {
       transform: rotate(0deg);
     }
-    from {
+    to {
       transform: rotate(360deg);
     }
   }

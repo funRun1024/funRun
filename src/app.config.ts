@@ -2,16 +2,16 @@ export default {
   pages: [
     // "pages/runMsg/index",
     // "pages/personRun/index",
-    "pages/result/index",
     // "pages/run/index",
-    "pages/track/index",
     // "pages/index/index",
     // "pages/top/index"
     // "pages/cloth/index"
     // "pages/track/index",'
+    'pages/index/index',
+    'pages/result/index',
+    'pages/track/index',
     'pages/top/index',
-    'pages/cloth/index',
-    'pages/index/index'
+    'pages/cloth/index'
   ],
   window: {
     backgroundTextStyle: 'light',

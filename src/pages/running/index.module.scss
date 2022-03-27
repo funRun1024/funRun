@@ -1,0 +1,74 @@
+.woman {
+  position: absolute;
+  top: 133px;
+  width: 248px;
+  height: 329px;
+  left: 90px;
+  background-position: -110px 0;
+  background-image: url('../../images/womanRun.png');
+}
+.man {
+  position: absolute;
+  top: 163px;
+  width: 248px;
+  height: 309px;
+  left: 90px;
+  background-position: -110px 0;
+  background-image: url('../../images/run.png');
+}
+.running {
+  animation: run 0.9s steps(8) infinite;
+}
+
+@keyframes run {
+  to {
+    background-position: -3310px 0;
+  }
+}
+.start,
+.pause {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 73px;
+  height: 73px;
+  bottom: 12%;
+  image {
+    width: 100%;
+    height: 100%;
+  }
+}
+.cut {
+  position: absolute;
+  width: 73px;
+  height: 73px;
+  left: 15%;
+  bottom: 4%;
+  image {
+    width: 100%;
+    height: 100%;
+  }
+}
+.end {
+  position: absolute;
+  width: 73px;
+  height: 73px;
+  right: 15%;
+  bottom: 4%;
+  image {
+    width: 100%;
+    height: 100%;
+  }
+}
+.lock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 53.89px;
+  height: 53.89px;
+  bottom: 2%;
+  image {
+    width: 100%;
+    height: 100%;
+  }
+}

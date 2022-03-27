@@ -11,11 +11,18 @@ export interface ActionProps {
   type: string;
   [key: string]: any;
 }
-
-const reducer = (state: StateProps, action: ActionProps):StateProps => {
+export const initState={
+  time:0
+}
+export const reducer = (state: StateProps, action: ActionProps):StateProps => {
   switch (action.type) {
     case "ADD":
       //自己做一些相关的处理
+      return {...state};
+    case "increment":
+      //自己做一些相关的处理
+
+
       return {...state};
     default:
       return state;

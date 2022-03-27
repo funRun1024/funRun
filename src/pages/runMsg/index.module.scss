@@ -1,0 +1,20 @@
+.run {
+  width: 115px;
+  height: 43px;
+  background-image: url('../../images/ready.png');
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 43px;
+  color: #ffffff;
+  font-size: 16px;
+}
+.runMsg {
+  position: absolute;
+  left: 29px;
+  top: 13px;
+  & > view {
+    margin-top: 6px;
+  }
+
+  height: 141px;
+}

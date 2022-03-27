@@ -11,7 +11,7 @@ interface headerProps {
 const Header: React.FC<headerProps> = ({ left, right, setState, state }) => {
   return (
     <View className={styles.head}>
-      <View>
+      <View className={styles.box}>
         <Button
           className={state ? styles.active : ''}
           onClick={() => {
@@ -22,7 +22,7 @@ const Header: React.FC<headerProps> = ({ left, right, setState, state }) => {
         </Button>
         {state ? <View className={styles.line}></View> : <></>}
       </View>
-      <View>
+      <View className={styles.box}>
         <Button
           className={!state ? styles.active : ''}
           onClick={() => {

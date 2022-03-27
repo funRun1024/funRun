@@ -1,10 +1,10 @@
-import { View, Image } from '@tarojs/components';
+import { View, Image, Button } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import profile from '../../images/top/head.png';
 import UserContext, { useUser } from '../../store/createContext';
-import Header from '../../components/header';
+import Header from '../../components/header/';
 
 export interface User {
   id: string;
@@ -51,7 +51,7 @@ const Page: React.FC<{}> = () => {
     <View className={styles.top}>
       {
         // eslint-disable-next-line
-        <Header left="今日" right="累计" state={tab} setState={setTab} />
+        <Header left={'人物'} right={'背景'} state={tab} setState={setTab} />
       }
       <View className={styles.content}>
         <View className={styles.item} key={me?.id}>

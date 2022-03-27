@@ -7,10 +7,11 @@ export default {
     // "pages/top/index"
     // "pages/cloth/index"
     // "pages/track/index",'
+    'pages/top/index',
     'pages/index/index',
     'pages/result/index',
     'pages/track/index',
-    'pages/top/index',
+    // 'pages/top/index',
     'pages/cloth/index'
   ],
   window: {

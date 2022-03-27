@@ -1,6 +1,6 @@
 import { View, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import React, { memo, useRef, useState } from 'react';
+import React, {memo, useRef, useState} from 'react';
 import RunMsg from '../runMsg';
 import styles from './index.module.scss';
 import start from '../../images/start.png';
@@ -13,22 +13,40 @@ import lockOpen from '../../images/lockOpen.png';
 interface RunningProps {
   data: {
     speed: number;
-    distance: string;
+    distance: number;
     time: number;
   };
+  // finish:()=>void;
   person: boolean;
   state: boolean;
   changeState: any;
+
 }
+
+
 const Running = memo((props: RunningProps) => {
+
+
+// console.log('props',props);
+const {data:{distance}}=props
+  const {data:{time,speed}}=props
   const [isLock, setLock] = useState<boolean>(false);
   const sex = useRef(props.person);
   const handleLock = () => {
     setLock(!isLock);
   };
+  const finishRun=()=>{
+    // props.finish()
+    console.log(time);
+
+    Taro.navigateTo({
+      url: `../result/index?time=${time}&&distance=${(distance/1000).toFixed(2)}`
+    });
+  }
+
   return (
     <>
-      <RunMsg distance={0} time={0} speed={0}></RunMsg>
+      <RunMsg distance={(distance/1000).toFixed(2)} time={time} speed={speed}></RunMsg>
       {sex.current ? (
         <View
           className={styles.woman + ` ${props.state ? styles.running : ''}`}
@@ -50,9 +68,7 @@ const Running = memo((props: RunningProps) => {
           <Image
             src={end}
             onClick={() => {
-              Taro.navigateTo({
-                url: '../result/index'
-              });
+              finishRun()
             }}
           ></Image>
         </View>

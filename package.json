@@ -41,6 +41,7 @@
         "@tarojs/components": "3.4.1",
         "@tarojs/plugin-framework-react": "3.4.1",
         "@tarojs/react": "3.4.1",
+        "@tarojs/redux": "^2.2.10",
         "@tarojs/runtime": "3.4.1",
         "@tarojs/taro": "3.4.1",
         "@types/styled-components": "^5.1.24",
@@ -49,6 +50,10 @@
         "linaria": "^2.3.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-redux": "^7.2.6",
+        "redux": "^4.1.2",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.4.1",
         "taro-hooks": "latest"
     },
     "devDependencies": {

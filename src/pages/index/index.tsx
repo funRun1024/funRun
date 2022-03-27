@@ -1,9 +1,12 @@
-// // import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
-
 import { Button, Swiper, SwiperItem, View } from '@tarojs/components';
-import React, { FC, useState, useEffect } from 'react';
-// import  Run from "../run/index"
-
+import React, {
+  FC,
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  useRef
+} from 'react';
 import Taro from '@tarojs/taro';
 
 import styles from './index.module.scss';
@@ -12,27 +15,40 @@ import day1 from '../../images/index/day1.png';
 import night1 from '../../images/index/night1.png';
 import day2 from '../../images/index/day2.png';
 import night2 from '../../images/index/night2.png';
-import UserContext from '../../store/createContext';
+// eslint-disable-next-line import/no-duplicates
+import {
+  UserContext,
+  UserProvider,
+  ContextType
+} from '../../store/createContext';
 import Running from '../running';
-// import PersonRun from '../personRun';
 
 const Page: FC = () => {
   //所有初始化的状态
-
   const [person, setPerson] = useState<0 | 1>(1);
   const [back, setBack] = useState(0);
   const [day, setDay] = useState(1);
-  const [next, setNext] = useState(0);
-  const [running, setRunning] = useState(false);
-
+  const [next, setNext] = useState(1);
+  const [running, setRunning] = useState(true);
+  const timer = useRef();
+  // @ts-ignore
+  let { time, speed, setTime } = useContext<ContextType | null>(UserContext);
   const picArr = [
     { day: day1, night: night1 },
     { day: day2, night: night2 },
     { day: day1, night: night1 }
   ];
-  const changeState = () => {
+  const changeState = useCallback(() => {
     setRunning(!running);
-  };
+    if (!running) {
+      // @ts-ignore
+      timer.current = setInterval(() => {
+        setTime(time++);
+      }, 1000);
+    } else {
+      clearInterval(timer.current);
+    }
+  }, [running, setTime, time]);
   useEffect(() => {
     const hours = new Date().getHours();
     if (6 < hours && hours < 19) setDay(1);
@@ -47,9 +63,6 @@ const Page: FC = () => {
   }, []);
   return (
     <>
-      {/*子组件都写在这里*/}
-      {/* <Image src={night1} style={{ display: 'none' }}></Image>
-      <Image src={night2} style={{ display: 'none' }}></Image> */}
       <View className={styles.index}>
         <View
           className={styles.backPic}
@@ -64,7 +77,7 @@ const Page: FC = () => {
             person={!!person}
             changeState={changeState}
             state={running}
-            data={{ speed: 1, distance: '123', time: 222 }}
+            data={{ speed, distance: time * 2, time }}
           />
         ) : (
           <>
@@ -148,14 +161,15 @@ const Page: FC = () => {
           }
         ></View>
       </View>
+      {/* {false? <Run />:null} */}
     </>
   );
 };
 const Index: React.FC<{}> = () => {
   return (
-    <UserContext>
+    <UserProvider>
       <Page></Page>
-    </UserContext>
+    </UserProvider>
   );
 };
 export default Index;

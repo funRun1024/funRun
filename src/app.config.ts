@@ -1,5 +1,12 @@
 export default {
   pages: [
+    // "pages/runMsg/index",
+    // "pages/personRun/index",
+    // "pages/run/index",
+    // "pages/index/index",
+    // "pages/top/index"
+    // "pages/cloth/index"
+    // "pages/track/index",'
     'pages/index/index',
     'pages/result/index',
     'pages/track/index',

@@ -38,7 +38,7 @@ const Result=()=>{
       <View className='runTime'>{formatTime(time)}分钟</View>
       <View className='rankHead'>
           <View className='rank'>今日排行</View>
-        <View className='checkRank'>查看排行榜&gt;</View>
+        <View className='checkRank' onClick={()=>Taro.navigateTo({ url:`../../pages/top/index`,})}>查看排行榜&gt;</View>
       </View>
       <View className='rankList'>
           <View className='listOne'>

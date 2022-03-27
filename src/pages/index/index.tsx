@@ -20,17 +20,19 @@ const Page: FC = () => {
   const [back, setBack] = useState(0);
   const [day, setDay] = useState(1);
   const [next, setNext] = useState(1);
-  const [running, setRunning] = useState(true);
+  const [running, setRunning] = useState(false);
   const timer = useRef()
 // @ts-ignore
-  let {time, distance, speed, setTime} = useContext<ContextType | null>(UserContext)
+  let {time, speed, setTime} = useContext<ContextType | null>(UserContext)
   const picArr = [
     {day: day1, night: night1},
     {day: day2, night: night2},
     {day: day1, night: night1}
   ];
   const changeState = useCallback(() => {
+    // flag? setRunning(running):  setRunning(!running)
     setRunning(!running);
+
     if (!running) {
       // @ts-ignore
       timer.current = setInterval(() => {
@@ -40,6 +42,10 @@ const Page: FC = () => {
       clearInterval(timer.current)
     }
   }, [running, setTime, time]);
+  useEffect(()=>{
+    // setRunning(!running);
+    changeState()
+  },[])
   useEffect(() => {
     const hours = new Date().getHours();
     if (6 < hours && hours < 19) setDay(1);

@@ -1,6 +1,6 @@
-import { Button, View } from '@tarojs/components';
-import React from 'react';
-import styles from './index.module.scss';
+import { Button, View } from "@tarojs/components";
+import React from "react";
+import styles from "./index.module.scss";
 
 interface headerProps {
   left: string;
@@ -11,9 +11,9 @@ interface headerProps {
 const Header: React.FC<headerProps> = ({ left, right, setState, state }) => {
   return (
     <View className={styles.head}>
-      <View>
+      <View className={styles.box}>
         <Button
-          className={state ? styles.active : ''}
+          className={state ? styles.active : ""}
           onClick={() => {
             setState(true);
           }}
@@ -22,9 +22,9 @@ const Header: React.FC<headerProps> = ({ left, right, setState, state }) => {
         </Button>
         {state ? <View className={styles.line}></View> : <></>}
       </View>
-      <View>
+      <View className={styles.box}>
         <Button
-          className={!state ? styles.active : ''}
+          className={!state ? styles.active : ""}
           onClick={() => {
             setState(false);
           }}

@@ -59,8 +59,8 @@
     position: absolute;
     width: 112.11px;
     height: 112.11px;
-    background: url(../../images/weather/sun.png);
-    background-size: cover;
+    // background: url(../../images/weather/sun.png);
+    // background-size: cover;
     top: 20px;
     right: 20px;
   }
@@ -116,11 +116,15 @@
   }
   .personContent {
     position: absolute;
-    left: 121px;
+    left: 101px;
     top: 148px;
     width: 188px;
     height: 347px;
-
+    swiper-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .man {
       width: 128px;
       height: 327px;

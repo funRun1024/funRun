@@ -20,6 +20,72 @@ const Run:FC=()=>{
     width: number,
     arrowLine: boolean,
   }
+//   const points=[
+//     {
+//       'longitude': 106.60417691,
+//     'latitude': 29.53560275
+//     },
+//     {
+//       'longitude':106.60420457 ,
+//       'latitude': 29.53563480
+//     },
+//    {
+//     'longitude': 106.60423088,
+//     'latitude':29.53567352
+//    },
+//   {
+//   'longitude': 106.60423382,
+//   'latitude':29.53574061
+//    },
+//    {
+//     'longitude': 106.60423458,
+//     'latitude':29.53577548
+//    },{
+//     'longitude': 106.60422472,
+//     'latitude':29.53582040
+//    },
+//    {
+//     'longitude': 106.60423460,
+//     'latitude':29.53587841
+//    },
+//    { 'longitude': 106.60422989,
+//    'latitude':29.53595518
+//   },{
+//     'longitude': 106.60423459,
+//     'latitude':29.53600357
+//   },
+//   {
+//     'longitude': 106.60421739,
+//     'latitude':29.53605506
+//   },
+//   {
+//     'longitude': 106.60421483,
+//     'latitude':29.53612137
+//   },
+//   {
+//     'longitude': 106.60419905,
+//     'latitude':29.53618165
+//   },
+//   {
+//     'longitude': 106.60416917,
+//   'latitude':29.53624214
+// },
+// {
+//   'longitude': 106.60414200,
+//   'latitude':29.53630246
+// },
+// {
+//   'longitude': 106.60410146,
+//   'latitude':29.53633330
+// },
+// {
+//   'longitude': 106.60403691,
+//   'latitude':29.53636050
+// },{
+//   'longitude': 106.60398564,
+//   'latitude':29.53637099
+// }
+// ]
   const data= [
     {
     'longitude': 116.297611,
@@ -80,3 +146,6 @@ const RunPage:FC=()=>{
   )
 }
 export  default RunPage
+
+// 106.60417691,
+//     'latitude': 29.53560275

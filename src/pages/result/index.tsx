@@ -15,10 +15,13 @@ const Result=()=>{
   const formatTime=(value) =>{
     let result:number = parseInt(value)
     // let h = Math.floor(result / 3600) < 10 ? '0' + Math.floor(result / 3600) : Math.floor(result / 3600)
-    let m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60))
+    let m = Math.floor((result / 60 % 60)) < 10 ?  + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60))
     let s = Math.floor((result % 60)) < 10 ? '0' + Math.floor((result % 60)) : Math.floor((result % 60))
     // @ts-ignore
-    result = `${m}:${s}`
+    if(m<1){
+      m=Math.ceil(s/60).toFixed(2)
+    }
+    result = `${m}`
     return result
   }
   const goTrack=()=>{

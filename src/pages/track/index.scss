@@ -1,44 +1,50 @@
-.map{
-  width: 100vw;
-  height: 100vh;
+.map {
+    width: 100vw;
+    height: 100vh;
 }
-.returnButton{
-  position: fixed;
-  bottom: 10vh;
-  left: 40vw;
-  width: (124 / 375)vw;
-  height: (45/667)vh;
-  z-index: 10;
-  background-color: #00A3FF;
-}
-.SpeedConfiguration{
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16PX;
-  line-height: 30PX;
-  letter-spacing: 0.18em;
-  color: #FFFFFF;
-  background-color: #00A3FF;
-  text-shadow: 0px 1px 1px rgba(0, 24, 107, 0.25);
-  z-index: 10;
-  position: fixed;
-  width: 115PX;
-  height: 30PX;
 
+.returnButton {
+    position: fixed;
+    bottom: 10vh;
+    left: 40vw;
+    width: (124 / 375)vw;
+    height: (45/667)vh;
+    z-index: 10;
+    background-color: #00A3FF;
 }
-.PaceRelated{
-  @extend .SpeedConfiguration !optional;
-  left: 51px;
-  top: 54PX;
+
+.SpeedConfiguration {
+    font-family: 'PingFang SC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16PX;
+    line-height: 40PX;
+    letter-spacing: 0.18em;
+    color: #FFFFFF;
+    // background-color: #00A3FF;
+    text-shadow: 0px 1px 1px rgba(0, 24, 107, 0.25);
+    z-index: 10;
+    position: fixed;
+    width: 115PX;
+    background-image: url('../../images/trackBg.png');
+    height: 40PX;
 }
-.time{
-  @extend .SpeedConfiguration !optional;
-  left: 51px;
-  top: 104PX;
+
+.PaceRelated {
+    @extend .SpeedConfiguration !optional;
+    left: 51px;
+    top: 54PX;
+    // background-image: url('../../images/trackBg.png')
 }
-.speed{
-  @extend .SpeedConfiguration !optional;
-  left: 51px;
-  top: 154PX;
+
+.time {
+    @extend .SpeedConfiguration !optional;
+    left: 51px;
+    top: 104PX;
+}
+
+.speed {
+    @extend .SpeedConfiguration !optional;
+    left: 51px;
+    top: 154PX;
 }

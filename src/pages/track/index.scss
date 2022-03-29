@@ -7,10 +7,11 @@
     position: fixed;
     bottom: 10vh;
     left: 40vw;
-    width: (124 / 375)vw;
+    width: 124PX;
     height: (45/667)vh;
     z-index: 10;
-    background-color: #00A3FF;
+    // background-color: #00A3FF;
+    background-image: url('../../images/return.png');
 }
 
 .SpeedConfiguration {

@@ -7,10 +7,10 @@
   position: fixed;
   bottom: 10vh;
   left: 40vw;
-  width: 0.33067 vw;
+  width: 124PX;
   height: 0.06747 vh;
   z-index: 10;
-  background-color: #00A3FF;
+  background-image: url("../../images/return.png");
 }
 
 .SpeedConfiguration, .PaceRelated, .time, .speed {
